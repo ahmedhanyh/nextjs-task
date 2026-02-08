@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Products"
@@ -13,7 +14,9 @@ export default async function Products() {
       {
         products.map(product => {
           return (
-            <li key={product.id}>{product.title}</li>
+            <Link href={`/products/${product.id}`} key={product.id}>
+              <li>{product.title}</li>
+            </Link>
           );
         })
       }
