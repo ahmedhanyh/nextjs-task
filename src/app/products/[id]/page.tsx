@@ -3,11 +3,26 @@ export default async function ProductDetails(
 ) {
     const { id } = await params;
     const product = await fetch(`https://dummyjson.com/products/${id}`).then(res => res.json());
+    console.log(product);
 
     return (
-        <div>
-            <h1>{product.title}</h1>
-            <p>{product.description}</p>
-        </div>
+        <main className="flex justify-center">
+            <div className="w-96 flex flex-col align-center">
+                <img src={product.images[0]} alt="" />
+                <div className="flex flex-col gap-4">
+                    <h1 className="text-lg font-bold">{product.title}</h1>
+                    <p>{product.rating}/5 stars</p>
+                    <p>{product.description}</p>
+                    <p className="font-bold">${product.price}</p>
+                </div>
+                {/* {
+                    product.reviews.map(review => {
+                        return <div key={review.reviewerEmail}>
+                            {review.reviewerName} <span className="italic">says</span>: {review.comment}
+                        </div>
+                    })
+                } */}
+            </div>
+        </main>
     );
 }
