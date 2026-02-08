@@ -4,8 +4,19 @@ export const metadata: Metadata = {
   title: "Products"
 };
 
-export default function Products() {
+export default async function Products() {
+  const response = await fetch("https://dummyjson.com/products");
+  const { products } = await response.json();
+
   return (
-    <div>Products</div>
+    <ul>
+      {
+        products.map(product => {
+          return (
+            <li key={product.id}>{product.title}</li>
+          );
+        })
+      }
+    </ul>
   );
 }
