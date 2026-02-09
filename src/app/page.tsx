@@ -1,5 +1,5 @@
 export default function Home() {
   return (
-    <div>Home</div>
+    <main className="grow flex justify-center items-center">Home</main>
   );
 }

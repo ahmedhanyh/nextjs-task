@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${nunito.className} antialiased`}
+        className={`${nunito.className} antialiased min-h-screen flex flex-col`}
       >
         <Navbar />
         {children}
