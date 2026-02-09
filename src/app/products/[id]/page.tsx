@@ -3,7 +3,6 @@ export default async function ProductDetails(
 ) {
     const { id } = await params;
     const product = await fetch(`https://dummyjson.com/products/${id}`).then(res => res.json());
-    console.log(product);
 
     return (
         <main className="flex justify-center">
@@ -15,6 +14,8 @@ export default async function ProductDetails(
                     <p>{product.description}</p>
                     <p className="font-bold">${product.price}</p>
                 </div>
+                
+                // TODO: add reviews section
                 {/* {
                     product.reviews.map(review => {
                         return <div key={review.reviewerEmail}>
