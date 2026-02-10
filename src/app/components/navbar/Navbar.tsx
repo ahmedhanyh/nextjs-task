@@ -1,4 +1,4 @@
-import Link from "next/link";
+import NavLink from "@/app/components/NavLink";
 
 export default function Navbar() {
     const navItems = [
@@ -13,9 +13,7 @@ export default function Navbar() {
                 {
                     navItems.map(({ title, path }) => {
                         return (
-                            <Link href={path} key={path}>
-                                <li className="nav-item p-4 font-bold hover:text-white hover:bg-slate-950">{title}</li>
-                            </Link>
+                            <NavLink title={title} path={path} key={path} />
                         );
                     })
                 }
