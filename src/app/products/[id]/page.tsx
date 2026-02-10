@@ -14,15 +14,6 @@ export default async function ProductDetails(
                     <p>{product.description}</p>
                     <p className="font-bold">${product.price}</p>
                 </div>
-                
-                // TODO: add reviews section
-                {/* {
-                    product.reviews.map(review => {
-                        return <div key={review.reviewerEmail}>
-                            {review.reviewerName} <span className="italic">says</span>: {review.comment}
-                        </div>
-                    })
-                } */}
             </div>
         </main>
     );

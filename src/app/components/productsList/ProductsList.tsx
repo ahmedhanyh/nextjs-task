@@ -19,6 +19,5 @@ export default function ProductsList({ products }) {
                 })
             }
         </ul>
-
     );
 }
