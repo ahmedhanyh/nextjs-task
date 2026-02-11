@@ -37,7 +37,7 @@ export default function ProductsList({ products, rating }) {
                                                 <p>${price}</p>
                                             </div>
                                         </Link>
-                                        <AddToCart />
+                                        <AddToCart id={id} />
                                     </li>
                                 );
                             })
