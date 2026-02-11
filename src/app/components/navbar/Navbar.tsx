@@ -5,6 +5,7 @@ export default function Navbar() {
         { title: "Home", path: "/" },
         { title: "Products", path: "/products" },
         { title: "Category", path: "/category" },
+        { title: "Cart", path: "/cart" },
     ];
 
     return (
