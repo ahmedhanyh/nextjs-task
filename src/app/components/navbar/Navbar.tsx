@@ -19,7 +19,7 @@ export default async function Navbar() {
         );
     } else {
         navItems.push(
-            { title: "Login", path: "/api/auth/signin" },
+            { title: "Login", path: "/signin" },
         );
     }
 

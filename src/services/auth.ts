@@ -17,7 +17,10 @@ const authConfig = {
         authorized: async ({ auth, request }) => {
             return !!auth?.user;
         }
+    },
+    pages: {
+        signIn: "/signin",
     }
 };
 
-export const { auth, handlers: { GET, POST } } = NextAuth(authConfig);
+export const { auth, signIn, handlers: { GET, POST } } = NextAuth(authConfig);
