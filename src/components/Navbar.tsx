@@ -15,7 +15,7 @@ export default async function Navbar() {
 
     if (session) {
         navItems.push(
-            { title: "Logout", path: "/api/auth/signout" },
+            { title: "Logout", path: "/signout" },
         );
     } else {
         navItems.push(
