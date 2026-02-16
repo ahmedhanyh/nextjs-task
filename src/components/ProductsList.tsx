@@ -1,5 +1,5 @@
 import Link from "next/link";
-import AddToCart from "../AddToCartButton";
+import AddToCart from "@/components/AddToCartButton";
 
 export default function ProductsList({ products, rating }) {
     let filteredProducts = products;

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import ProductsList from "../components/productsList/ProductsList";
-import Filter from "../components/Filter";
+import ProductsList from "@/components/ProductsList";
+import Filter from "@/components/Filter";
 
 export const metadata: Metadata = {
   title: "Products"

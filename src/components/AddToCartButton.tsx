@@ -2,8 +2,8 @@
 
 export default function AddToCart({ id }) {
     const addToCart = (productId) => {
-        const oldCart = JSON.parse(localStorage.getItem("cart") ?? "{}");
-        const cart = JSON.stringify({ ...oldCart, [productId] : 1 });
+        const oldCart = JSON.parse(localStorage.getItem("cart") ?? "[]");
+        const cart = JSON.stringify([ ...oldCart, productId ]);
         localStorage.setItem("cart", cart);
     }
 

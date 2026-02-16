@@ -1,4 +1,4 @@
-import NavLink from "@/app/components/NavLink";
+import NavLink from "@/components/NavLink";
 import { auth } from "@/services/auth";
 import Image from "next/image";
 
