@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Provider from "@/app/providers";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -20,7 +21,9 @@ export default function RootLayout({
         className={`${nunito.className} antialiased min-h-screen flex flex-col`}
       >
         <Navbar />
-        {children}
+        <Provider>
+          {children}
+        </Provider>
       </body>
     </html>
   );
