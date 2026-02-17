@@ -1,6 +1,4 @@
-import Link from "next/link";
-import AddToCart from "@/components/AddToCartButton";
-import TextExpander from "./TextExpander";
+import ProductCard from "./ProductCard";
 
 export default function ProductsList({ products, rating }) {
     let filteredProducts = products;
@@ -28,20 +26,9 @@ export default function ProductsList({ products, rating }) {
                 filteredProducts.length ?
                     <ul className="grid grid-cols-4 gap-4">
                         {
-                            filteredProducts.map(({ id, title, description, thumbnail, price }) => {
+                            filteredProducts.map((product) => {
                                 return (
-                                    <li key={id} className="p-2 h-full shadow-sm rounded-lg flex flex-col justify-between gap-2 transition-all duration-200 hover:scale-104 hover:shadow-md">
-                                        <img src={thumbnail} alt="" className="h-3/4 self-center" />
-                                        <div>
-                                            <h2 className="font-extrabold">{title}</h2>
-                                            <div className="mt-2 mb-8"><TextExpander>{description}</TextExpander></div>
-                                            <p className="font-bold">${price}</p>
-                                        </div>
-                                        <AddToCart id={id} />
-                                        <Link href={`/products/${id}`} className="text-center py-2 border rounded-sm hover:bg-slate-950 hover:text-white">
-                                            View Details
-                                        </Link>
-                                    </li>
+                                    <ProductCard key={product.id} product={product} />
                                 );
                             })
                         }
