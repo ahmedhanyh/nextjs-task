@@ -1,26 +1,35 @@
-// "use client"
+"use client"
 
-export default async function Cart() {
+import ProductsList from "@/components/ProductsList";
+import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
+
+export default function Cart() {
+    const [productsIdsInCart, setProductsIdsInCart] = useState([]);
+
+    useEffect(() => {
+        const cartItems = JSON.parse(localStorage.getItem("cart") || "[]");
+        setProductsIdsInCart(cartItems);
+    }, []);
+
+    const getProducts = async () => {
+        const response = await fetch("https://dummyjson.com/products");
+        return await response.json();
+    };
+
+    const { data, isSuccess } = useQuery({
+        queryKey: ["products"],
+        queryFn: getProducts,
+    });
+
     return (
         <main className="p-4">
-            {/* <ul className="grid grid-cols-4 gap-4">
-                {
-                    products.map(({ id, title, thumbnail, price }) => {
-                        return (
-                            <li key={id} className="p-2 h-full shadow-sm rounded-lg flex flex-col justify-between transition-all duration-200 hover:scale-104 hover:shadow-md">
-                                <Link href={`/products/${id}`} className="flex flex-col justify-between">
-                                    <img src={thumbnail} alt="" className="h-3/4 self-center" />
-                                    <div>
-                                        <h2>{title}</h2>
-                                        <p>${price}</p>
-                                    </div>
-                                </Link>
-                            </li>
-                        );
-                    })
-                }
-            </ul> */}
-            {/* <p className="mt-8 text-3xl text-center font-bold">To be implemented</p> */}
+            {
+                isSuccess && productsIdsInCart &&
+                <ProductsList products={data.products.filter((product) =>
+                    productsIdsInCart.includes(product.id)
+                )} rating={"all"} />
+            }
         </main>
     );
 }
